@@ -19,17 +19,19 @@ export default function App() {
       title : "Third Title"
     }
   ]);
+  let [showModal, setShowModadl] = useState(false);
   return (
     // react fragment
     <>
-      <Navbar />
+      <Navbar setShowModal={setShowModadl} />
       {/* exports props */}
       <PostsList posts={posts} testData="test data" />
-      <Modal>
-            {/* modal content */}
-            <h1>Zoom class is available now</h1>
-            <p>free to <a href='#'>join</a> here</p>
-      </Modal>
+      {showModal && <Modal>
+            {/* modal content (slots) */}
+            <h1>Terms and Conditions</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <button onClick={() => setShowModadl(false)}>Close</button>
+      </Modal>}
     </>
   )
 }

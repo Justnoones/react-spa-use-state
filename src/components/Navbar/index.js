@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-export default function navbar() {
+export default function navbar({setShowModal}) {
   return (
     <nav>
       <div className='container'>
@@ -9,6 +9,7 @@ export default function navbar() {
         <ul>
           <li>Home</li>
           <li>Posts</li>
+          <li onClick={() => setShowModal(true)}>Sign In</li>
         </ul>
       </div>
     </nav>
